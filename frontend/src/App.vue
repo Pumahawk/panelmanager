@@ -15,12 +15,11 @@
 <script>
 import SideBar from '@/components/SideBar'
 import NavBar from '@/components/NavBar'
-import UserController from '@/controller/UserController'
 export default {
   name: 'App',
   methods: {
     logout() {
-      UserController.logut(this);
+      this.$emit('logout');
     }
   },
   components: {

@@ -14,4 +14,11 @@ class UserController {
 		}
 		echo json_encode($resp);
 	}
+  public function logoutAction() {
+    session_destroy();
+    $ret = [
+      'status' => 'OK'
+    ];
+		echo json_encode($ret);
+  }
 }

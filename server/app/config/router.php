@@ -3,13 +3,22 @@ $routeList = [
   [
     'group' => '/REST.php',
   	[
-  		'group' => '/User',
+  		'group' => '/App',
   		[
-			'name' => 'demoHome', 'pattern' => '/login',
+			'name' => 'login', 'pattern' => '/login',
 			'options' => [
 			  '_controller' => 'User', '_action' => 'login'
     		]
     	]
+    ],
+    [
+      'group' => '/User', 'middleware' => ['logged'],
+      [
+        'name' => 'logut', 'pattern' => '/logout',
+        'options' => [
+          '_controller' => 'User', '_action' => 'logout'
+        ]
+      ]
     ]
   ]
 ];

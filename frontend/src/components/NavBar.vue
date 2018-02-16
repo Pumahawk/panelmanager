@@ -16,7 +16,7 @@
     name: 'NavBar',
     methods: {
       logout() {
-        this.$emit('logout');
+        UserController.logout(this);
       }
     }
   }
