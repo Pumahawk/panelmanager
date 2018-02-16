@@ -22,4 +22,13 @@ class ProgettiController {
 
     echo json_encode($resp);
   }
+
+  public function saveOptionAction() {
+    $resp = [
+      'status' => 'ERROR',
+      'message' => 'Functionality not supported yet'
+    ];
+
+    echo json_encode($resp);
+  }
 }

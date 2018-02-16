@@ -2,7 +2,7 @@
   <div>
     <h1>Impostazioni progetto</h1>
     <hr>
-    <button class="btn btn-success"><strong>Save</strong></button>
+    <button class="btn btn-success" @click="saveAll()"><strong>Save</strong></button>
     <hr>
     <h2>Default data</h2>
     <hr>
@@ -109,6 +109,23 @@ export default {
             'This extra has been deleted.',
             'success'
           )
+        }
+      });
+    },
+    saveAll() {
+      ProgettoController.saveOption(this.option, function(resp){
+        if(resp.data.status == "OK"){
+          swal(
+            'Saved!',
+            'All options has been saved.',
+            'success'
+          );
+        } else {
+          swal({
+              type: 'error',
+              title: 'Oops...',
+              text: resp.data.message
+          });
         }
       });
     }

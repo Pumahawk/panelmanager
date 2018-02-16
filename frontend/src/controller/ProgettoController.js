@@ -10,5 +10,10 @@ export default {
     axios.get('/REST.php/Project/get_options.json').then(function(resp) {
       callBack(resp.data.data);
     });
+  },
+  saveOption(options, callBack) {
+    axios.post('/REST.php/Project/save_options', {options: options}).then(function(resp){
+      callBack(resp);
+    });
   }
 }

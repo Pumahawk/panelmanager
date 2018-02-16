@@ -29,6 +29,12 @@ $routeList = [
         ]
       ],
       [
+        'name' => 'logut', 'pattern' => '/save_options',
+        'options' => [
+          '_controller' => 'Progetti', '_action' => 'saveOption'
+        ]
+      ],
+      [
         'name' => 'logut', 'pattern' => '/get_options.json',
         'options' => [
           '_controller' => 'Progetti', '_action' => 'getOption'
