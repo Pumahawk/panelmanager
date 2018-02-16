@@ -19,6 +19,15 @@ $routeList = [
           '_controller' => 'User', '_action' => 'logout'
         ]
       ]
+    ],
+    [
+      'group' => '/Project', 'middleware' => ['logged'],
+      [
+        'name' => 'logut', 'pattern' => '/get_all.json',
+        'options' => [
+          '_controller' => 'Progetti', '_action' => 'getAll'
+        ]
+      ]
     ]
   ]
 ];

@@ -42,8 +42,15 @@
   </div>
 </template>
 <script>
+  import ProgettoController from '@/controller/ProgettoController'
   export default {
     name: 'ProgettiPage',
+    beforeCreate() {
+      var module = this;
+      ProgettoController.getAll(function(data){
+        module.progetti = data;
+      });
+    },
     data() {
       return {
         progetti:[
