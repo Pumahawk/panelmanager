@@ -31,9 +31,6 @@
                 </button>
               </router-link>
               <button>
-                Modifica
-              </button>
-              <button>
                 Cancella
               </button>
             </td>
@@ -55,20 +52,7 @@
     },
     data() {
       return {
-        progetti:[
-          {
-            id: 0,
-            nome: "DemoName1"
-          },
-          {
-            id: 1,
-            nome: "DemoName2"
-          },
-          {
-            id: 2,
-            nome: "DemoName3"
-          }
-        ]
+        progetti: null
       }
     }
   }

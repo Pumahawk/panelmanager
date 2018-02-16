@@ -8,6 +8,7 @@ import ProfilePage from '@/components/ProfilePage'
 import NuovoProgetto from '@/components/NuovoProgetto'
 import NuovaFattura from '@/components/NuovaFattura'
 import ImpostazioniFatture from '@/components/ImpostazioniFatture'
+import ImpostazioniProgettoPage from '@/components/ImpostazioniProgettoPage'
 
 Vue.use(Router)
 
@@ -20,6 +21,10 @@ export default new Router({
     {
       path: '/progetti',
       component: ProgettiPage
+    },
+    {
+      path: '/impostazioni_progetto',
+      component: ImpostazioniProgettoPage
     },
     {
       path: '/fatture',

@@ -30,6 +30,13 @@
             </a>
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/impostazioni_progetto">
+            <a class="nav-link" href="#">
+              Impostazioni progetto
+            </a>
+          </router-link>
+        </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Fatture</span>
           <a class="d-flex align-items-center text-muted" href="#">
