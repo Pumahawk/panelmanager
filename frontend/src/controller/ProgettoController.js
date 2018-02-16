@@ -15,5 +15,10 @@ export default {
     axios.post('/REST.php/Project/save_options', {options: options}).then(function(resp){
       callBack(resp);
     });
+  },
+  save(options, callBack) {
+    axios.post('/REST.php/Project/save', {options: options}).then(function(resp){
+      callBack(resp);
+    });
   }
 }

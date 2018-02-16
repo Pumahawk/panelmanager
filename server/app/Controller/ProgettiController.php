@@ -31,4 +31,12 @@ class ProgettiController {
 
     echo json_encode($resp);
   }
+  public function saveAction() {
+    $resp = [
+      'status' => 'ERROR',
+      'message' => 'Functionality not supported yet'
+    ];
+
+    echo json_encode($resp);
+  }
 }

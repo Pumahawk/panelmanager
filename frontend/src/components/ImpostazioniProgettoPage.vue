@@ -113,7 +113,7 @@ export default {
       });
     },
     saveAll() {
-      ProgettoController.saveOption(this.option, function(resp){
+      ProgettoController.save(this.option, function(resp){
         if(resp.data.status == "OK"){
           swal(
             'Saved!',
