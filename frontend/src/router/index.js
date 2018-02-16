@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import DemoDashboard from '@/components/DemoDashboard'
 import ProgettiPage from '@/components/ProgettiPage'
+import ProgettoPage from '@/components/ProgettoPage'
 import FatturePage from '@/components/FatturePage'
 import ProfilePage from '@/components/ProfilePage'
 import NuovoProgetto from '@/components/NuovoProgetto'
@@ -39,6 +40,11 @@ export default new Router({
     {
       path: '/impostazioni_fatture',
       component: ImpostazioniFatture
+    },
+    {
+      name: 'progetto',
+      path: '/progetto/:id',
+      component: ProgettoPage
     }
   ]
 })

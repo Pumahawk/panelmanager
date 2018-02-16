@@ -25,9 +25,11 @@
               {{progetto.nome}}
             </td>
             <td>
-              <button>
-                Apri
-              </button>
+              <router-link :to="{ name: 'progetto', params: {id: progetto.id} }">
+                <button>
+                  Apri
+                </button>
+              </router-link>
               <button>
                 Modifica
               </button>
