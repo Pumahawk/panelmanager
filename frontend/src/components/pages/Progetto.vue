@@ -3,6 +3,9 @@
 </template>
 <script>
 export default {
-  name: "ProgettoPage"
+  name: "ProgettoPage",
+  beforeCreated() {
+    
+  }
 }
 </script>

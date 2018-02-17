@@ -10,14 +10,10 @@
   </nav>
 </template>
 <script>
-  import UserController from '@/controller/UserController'
+  import controller from '@/controller/NavBar'
 
   export default {
     name: 'NavBar',
-    methods: {
-      logout() {
-        UserController.logout(this);
-      }
-    }
+    methods: controller
   }
 </script>

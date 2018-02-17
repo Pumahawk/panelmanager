@@ -30,14 +30,14 @@
   </div>
 </template>
 <script>
-import ProgettoController from '@/controller/ProgettoController'
-import swal from 'sweetalert2'
+import controller from '@/controller/NuovoProgetto'
+import ProgettoRequest from '@/request/Progetto'
 export default {
   name: "NuovoProgetto",
   beforeCreate(){
     var component = this;
-    ProgettoController.getOption(function(data){
-      component.progetto = data;
+    ProgettoRequest.getOption(function(resp){
+      component.progetto = resp.data.data;
     });
   },
   data() {
@@ -49,26 +49,6 @@ export default {
       }
     }
   },
-  methods: {
-    save() {
-      var comp = this;
-      ProgettoController.save(this.progetto, function(resp){
-        if(resp.data.status == "OK"){
-          swal(
-            'Saved!',
-            'Project has been saved.',
-            'success'
-          );
-          comp.$router.push('/progetti');
-        } else {
-          swal({
-              type: 'error',
-              title: 'Oops...',
-              text: resp.data.message
-          });
-        }
-      });
-    }
-  }
+  methods: controller
 }
 </script>

@@ -1,14 +1,19 @@
 import axios from 'axios'
 
 export default {
+  getInfo(callBack) {
+    axios.get('/REST.php/Project/getinfo/{id:[0-9]+}.json').then(function(resp) {
+      callBack(resp.data.data);
+    });
+  },
   getAll(callBack) {
     axios.get('/REST.php/Project/get_all.json').then(function(resp) {
-      callBack(resp.data.data);
+      callBack(resp);
     });
   },
   getOption(callBack) {
     axios.get('/REST.php/Project/get_options.json').then(function(resp) {
-      callBack(resp.data.data);
+      callBack(resp);
     });
   },
   saveOption(options, callBack) {

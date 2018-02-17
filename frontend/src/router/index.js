@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import DemoDashboard from '@/components/DemoDashboard'
-import ProgettiPage from '@/components/ProgettiPage'
-import ProgettoPage from '@/components/ProgettoPage'
-import FatturePage from '@/components/FatturePage'
-import ProfilePage from '@/components/ProfilePage'
-import NuovoProgetto from '@/components/NuovoProgetto'
-import NuovaFattura from '@/components/NuovaFattura'
-import ImpostazioniFatture from '@/components/ImpostazioniFatture'
-import ImpostazioniProgettoPage from '@/components/ImpostazioniProgettoPage'
-
+import DemoDashboard from '@/components/pages/DemoDashboard'
+import ProgettiPage from '@/components/pages/Progetti'
+import ProgettoPage from '@/components/pages/Progetto'
+import FatturePage from '@/components/pages/Fatture'
+import ProfilePage from '@/components/pages/Profile'
+import NuovoProgetto from '@/components/pages/NuovoProgetto'
+import NuovaFattura from '@/components/pages/NuovaFattura'
+import ImpostazioniFatture from '@/components/pages/ImpostazioniFatture'
+import ImpostazioniProgettoPage from '@/components/pages/ImpostazioniProgetto'
 Vue.use(Router)
 
 export default new Router({

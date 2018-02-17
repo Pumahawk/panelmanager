@@ -10,7 +10,7 @@ class UserController {
 			$resp['message'] = 'Status ok';
 		} else {
 			$resp['status'] = 'ERROR';
-			$resp['message'] = 'NOT LOGIN';
+			$resp['message'] = 'Wrong username or password';
 		}
 		echo json_encode($resp);
 	}

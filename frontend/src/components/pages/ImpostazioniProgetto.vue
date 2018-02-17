@@ -40,7 +40,7 @@
         {{opt.valore}}
       </div>
       <div class="col-md">
-        <button class="btn btn-danger" @click="removeExtra(index)">Elimina</button>
+        <button @click="removeExtra(index)">Elimina</button>
       </div>
     </div>
     <div class="row">
@@ -57,7 +57,8 @@
   </div>
 </template>
 <script>
-import ProgettoController from '@/controller/ProgettoController'
+import controller from '@/controller/ImpostazioniProgetto'
+import ProgettoRequest from '@/request/Progetto'
 import swal from 'sweetalert2'
 export default {
   name: "ImpostazioniProgettoPage",
@@ -74,61 +75,10 @@ export default {
   },
   beforeCreate() {
     var component = this;
-    ProgettoController.getOption(function(data){
-      component.option = data;
+    ProgettoRequest.getOption(function(resp){
+      component.option = resp.data.data;
     });
   },
-  methods: {
-    addExtra() {
-      if(this.inExtraKey != '' && this.inExtraValue != '') {
-        this.option.extra.push({chiave: this.inExtraKey, valore: this.inExtraValue});
-        this.inExtraKey = '';
-        this.inExtraValue = '';
-      } else {
-        swal({
-            type: 'error',
-            title: 'Oops...',
-            text: 'Don\'t forget to insert Key and value!'
-        });
-      }
-    },
-    removeExtra(index) {
-      swal({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
-          this.option.extra.splice(index, 1);
-          swal(
-            'Deleted!',
-            'This extra has been deleted.',
-            'success'
-          )
-        }
-      });
-    },
-    saveAll() {
-      ProgettoController.save(this.option, function(resp){
-        if(resp.data.status == "OK"){
-          swal(
-            'Saved!',
-            'All options has been saved.',
-            'success'
-          );
-        } else {
-          swal({
-              type: 'error',
-              title: 'Oops...',
-              text: resp.data.message
-          });
-        }
-      });
-    }
-  }
+  methods: controller
 }
 </script>

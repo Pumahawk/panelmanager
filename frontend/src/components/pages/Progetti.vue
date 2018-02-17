@@ -41,13 +41,13 @@
   </div>
 </template>
 <script>
-  import ProgettoController from '@/controller/ProgettoController'
+  import ProgettoRequest from '@/request/Progetto'
   export default {
     name: 'ProgettiPage',
     beforeCreate() {
       var module = this;
-      ProgettoController.getAll(function(data){
-        module.progetti = data;
+      ProgettoRequest.getAll(function(resp){
+        module.progetti = resp.data.data;
       });
     },
     data() {
