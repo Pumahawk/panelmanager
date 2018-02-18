@@ -25,5 +25,10 @@ export default {
     axios.post('/REST.php/Project/save', {options: options}).then(function(resp){
       callBack(resp);
     });
+  },
+  getById(id, callBack) {
+    axios.get('/REST.php/Project/open/' + id + '.json').then(function(resp){
+      callBack(resp);
+    });
   }
 }

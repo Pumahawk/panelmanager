@@ -39,4 +39,22 @@ class ProgettiController {
 
     echo json_encode($resp);
   }
+  public function openAction($params) {
+    $id = $params['id'];
+    $data = Progetto::getById($id);
+    if($data){
+      $resp = [
+        'status' => 'OK',
+        'message' => '',
+        'data' => $data
+      ];
+    } else {
+      $resp = [
+        'status' => 'ERROR',
+        'message' => 'Invalid id argument'
+      ];
+    }
+
+    echo json_encode($resp);
+  }
 }

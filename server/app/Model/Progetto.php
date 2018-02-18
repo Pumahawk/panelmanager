@@ -9,4 +9,14 @@ class Progetto {
       ['id' => '3', 'nome' => 'DemoPr4']
     ];
   }
+  public static function getById($id) {
+    return [
+      'id' => '0',
+      'nome' => 'DemoPr1',
+      'descrizione' => 'Bella descrizione piena di dettagli',
+      'extra' => [
+        ['chiave' => 'ChiaveDemo', 'valore' => 'ValoreDemo']
+      ]
+    ];
+  }
 }
