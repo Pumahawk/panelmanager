@@ -9,6 +9,7 @@ import NuovoProgetto from '@/components/pages/NuovoProgetto'
 import NuovaFattura from '@/components/pages/NuovaFattura'
 import ImpostazioniFatture from '@/components/pages/ImpostazioniFatture'
 import ImpostazioniProgettoPage from '@/components/pages/ImpostazioniProgetto'
+import ModificaProgettoPage from '@/components/pages/ModificaProgetto'
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,11 @@ export default new Router({
       name: 'progetto',
       path: '/progetto/:id',
       component: ProgettoPage
+    },
+    {
+      name: 'progettoEdit',
+      path: '/progetto/edit/:id',
+      component: ModificaProgettoPage
     }
   ]
 })

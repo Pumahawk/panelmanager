@@ -3,7 +3,9 @@
     <h1>Dettagli progetto</h1>
     <h2>{{progetto.nome}}</h2>
     <hr>
-      <button class="btn btn-info">Modifica</button>
+      <router-link :to="{ name: 'progettoEdit', params: {id:progetto.id} }">
+        <button class="btn btn-info">Modifica</button>
+      </router-link>
     <hr>
     <div class="row">
       <div class="col">
@@ -55,7 +57,7 @@ export default {
   data() {
     return {
       progetto: {
-        id: '',
+        id: '0',
         nome: '',
         descrizione: '',
         extra: []
