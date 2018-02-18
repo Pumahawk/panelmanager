@@ -10,6 +10,9 @@ import NuovaFattura from '@/components/pages/NuovaFattura'
 import ImpostazioniFatture from '@/components/pages/ImpostazioniFatture'
 import ImpostazioniProgettoPage from '@/components/pages/ImpostazioniProgetto'
 import ModificaProgettoPage from '@/components/pages/ModificaProgetto'
+import ElencoMediaPage from '@/components/pages/ElencoMedia'
+import MediaUploadPage from '@/components/pages/MediaUpload'
+
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +58,16 @@ export default new Router({
       name: 'progettoEdit',
       path: '/progetto/edit/:id',
       component: ModificaProgettoPage
+    },
+    {
+      name: 'elencoMedia',
+      path: '/media',
+      component: ElencoMediaPage
+    },
+    {
+      name: 'uploadMedia',
+      path: '/media/upload',
+      component: MediaUploadPage
     }
   ]
 })
