@@ -52,6 +52,21 @@ $routeList = [
           '_controller' => 'Progetti', '_action' => 'getOption'
         ]
       ]
+    ],
+    [
+      'group' => '/Media',
+      [
+        'name' => 'allMedia', 'pattern' => '/get_all.json',
+        'options' => [
+          '_controller' => 'Media', '_action' => 'getAll'
+        ]
+      ],
+      [
+        'name' => 'getByProject', 'pattern' => '/project',
+        'options' => [
+          '_controller' => 'Media', '_action' => 'getByIdProject'
+        ]
+      ]
     ]
   ]
 ];
