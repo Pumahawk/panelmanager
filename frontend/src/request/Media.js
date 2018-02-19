@@ -6,5 +6,8 @@ export default {
   },
   getByIdProject(id, callBack) {
     axios.post('/REST.php/Media/get_by_id_project.json',{id:id}).then(callBack);
+  },
+  upload(data, callBack) {
+    axios.post('/REST.php/Media/upload', data).then(callBack)
   }
 }

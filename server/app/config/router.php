@@ -66,6 +66,18 @@ $routeList = [
         'options' => [
           '_controller' => 'Media', '_action' => 'getByIdProject'
         ]
+      ],
+      [
+        'name' => 'deleteMedia', 'pattern' => '/delete',
+        'options' => [
+          '_controller' => 'Media', '_action' => 'delete'
+        ]
+      ],
+      [
+        'name' => 'uploadMedia', 'pattern' => '/upload',
+        'options' => [
+          '_controller' => 'Media', '_action' => 'upload'
+        ]
       ]
     ]
   ]

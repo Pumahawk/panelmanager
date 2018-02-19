@@ -41,4 +41,18 @@ class MediaController {
     // TODO function getById
     return false;
   }
+
+  function deleteAction() {
+    // TODO function deleteAction
+    return false;
+  }
+
+  function uploadAction() {
+    // TODO function uploadAction
+    $resp = [
+      'status' => 'OK',
+      'message' => ''
+    ];
+    echo json_encode($resp);
+  }
 }

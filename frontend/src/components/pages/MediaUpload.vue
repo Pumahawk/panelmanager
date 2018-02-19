@@ -2,12 +2,12 @@
   <div>
     <h1>Upload media</h1>
     <hr>
-    <button class="btn btn-success">Upload</button>
+    <button @click="uploadMedia()" class="btn btn-success">Upload</button>
     <hr>
     <div class="form">
       <div class="form-group">
         <label for="project"><strong>Progetto</strong></label>
-        <select class="form-control" name="">
+        <select v-model="form.project" class="form-control" name="">
           <option v-for="progetto in progetti" :value="progetto.id">{{progetto.nome}}</option>
         </select>
       </div>
@@ -21,6 +21,8 @@
 
 <script>
 import ProgettoRequest from '@/request/Progetto'
+import MediaRequest from '@/request/Media'
+import swal from 'sweetalert2'
 
 export default {
   name: "MediaUploadPage",
@@ -46,6 +48,23 @@ export default {
   methods: {
     updateForm() {
       this.form.file = document.getElementById('media').files[0];
+    },
+    uploadMedia() {
+      if (this.form.project != null && this.form.file != null) {
+        var data = new FormData();
+        data.append('media', this.form.project);
+        data.append('file', this.form.file);
+
+        MediaRequest.upload(data, function(resp){
+          if(resp.data.status === 'OK') {
+            swal('Yeah', 'Media uploaded!', 'success');
+          } else {
+            swal('Oops...', resp.data.message, 'error')
+          }
+        });
+      } else {
+        swal('Oops...', 'You have to select project and file...', 'error');
+      }
     }
   }
 }
