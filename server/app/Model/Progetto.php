@@ -12,13 +12,13 @@ class Progetto {
 
   public function __construct($data) {
     if($data != null && isset($data['id'], $data['nome'], $data['descrizione'], $data['extra'])) {
-      $this -> nome = $data['id'];
+      $this -> id = $data['id'];
       $this -> nome = $data['nome'];
       $this -> descrizione = $data['descrizione'];
       $this -> extra = $data['extra'];
 
       $this -> dataManager = new DataManager();
-      $this -> dataFile = 'progetti';
+      $this -> dataFile = 'ProgettiDB';
     } else {
       throw new Exception("Parametro data non contiene le informazioni necessarie per istanziare Progetto.", 1);
     }
@@ -38,6 +38,25 @@ class Progetto {
       $progetto -> id = $progettiDB -> contatore + 1;
       $progettiDB -> contatore += 1;
       $progettiDB -> progetti[] = $progetto -> toArray();
+      $progetto -> dataManager -> saveFileJSON($progetto -> dataFile, $progettiDB);
+      return true;
+    } else {
+      throw new Exception("Parametro progetto non e' una istanza di Progetto", 1);
+      return false;
+    }
+  }
+
+  public static function save($progetto) {
+    if($progetto instanceof Progetto) {
+      $progettiDB = $progetto -> dataManager -> openFileJSON($progetto -> dataFile);
+      foreach ($progettiDB -> progetti as $pr) {
+        if($pr -> id == $progetto -> id) {
+          $pr -> nome = $progetto -> nome;
+          $pr -> descrizione = $progetto -> descrizione;
+          $pr -> extra = $progetto -> extra;
+          break;
+        }
+      }
       $progetto -> dataManager -> saveFileJSON($progetto -> dataFile, $progettiDB);
       return true;
     } else {

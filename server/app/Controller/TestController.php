@@ -3,12 +3,12 @@
 class TestController {
   function dataManagerAction() {
     $data = [
-      'id' => '0',
-      'nome' => 'Demo',
+      'id' => '1',
+      'nome' => 'Demo2',
       'descrizione' => "Descrizione favolosa",
       'extra' => []
     ];
     $pr = new Progetto($data);
-    Progetto::push($pr);
+    Progetto::save($pr);
   }
 }
