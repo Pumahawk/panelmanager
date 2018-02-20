@@ -91,4 +91,15 @@ class ProgettiController {
 
     echo json_encode($resp);
   }
+  function editAction() {
+	   $data = json_decode(file_get_contents('php://input'));
+     $progetto = $data -> progetto;
+     $progetto = (new Progetto((Array) $progetto));
+     Progetto::save($progetto);
+     $resp = [
+       'status' => 'OK',
+       'message' => ''
+     ];
+     echo json_encode($resp);
+  }
 }

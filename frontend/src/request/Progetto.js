@@ -35,5 +35,10 @@ export default {
     axios.get('/REST.php/Project/delete/' + id).then(function(resp){
       callBack(resp);
     });
+  },
+  edit(progetto, callBack) {
+    axios.post('/REST.php/Project/edit', {progetto: progetto}).then(function(resp){
+      callBack(resp);
+    });
   }
 }

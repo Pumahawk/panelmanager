@@ -2,7 +2,7 @@
   <div class="">
     <h1>Modifica progetto</h1>
     <hr>
-    <button class="btn btn-success">Save</button>
+    <button @click="edit()" class="btn btn-success">Save</button>
     <hr>
     <div class="row">
       <div class="col">
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import swal from 'sweetalert2'
 import ProgettoRequest from '@/request/Progetto'
 export default {
   name: "ModificaProgetto",
@@ -49,6 +50,17 @@ export default {
     ProgettoRequest.getById(id,function(resp) {
       vuec.progetto = resp.data.data;
     });
+  },
+  methods: {
+    edit() {
+      ProgettoRequest.edit(this.progetto, function(resp){
+        if(resp.data.status == "OK") {
+          swal('Yeah!', 'This project has been edited', 'success');
+        } else {
+          swal('Oops...', 'Sorry, Something was going wrong..', 'error');
+        }
+      });
+    }
   }
 }
 </script>
