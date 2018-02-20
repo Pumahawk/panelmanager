@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="progetto in progetti">
+          <tr v-for="progetto, index in progetti">
             <td>
               {{progetto.id}}
             </td>
@@ -30,7 +30,7 @@
                   Apri
                 </button>
               </router-link>
-              <button>
+              <button @click="destory(index)">
                 Cancella
               </button>
             </td>
@@ -41,6 +41,7 @@
   </div>
 </template>
 <script>
+  import swal from 'sweetalert2'
   import ProgettoRequest from '@/request/Progetto'
   export default {
     name: 'ProgettiPage',
@@ -53,6 +54,32 @@
     data() {
       return {
         progetti: null
+      }
+    },
+    methods: {
+      destory(index) {
+        var vuec = this;
+        var id = this.progetti[index].id;
+        swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            ProgettoRequest.destroy(id, function(resp) {
+              if(resp.data.status == 'OK') {
+                swal('Deleted!','This project has been deleted.','success');
+                vuec.progetti.splice(index, 1);
+              } else {
+                swal('Oops!', 'Sorry, there is something wrong...', 'error');
+              }
+            });
+          }
+        });
       }
     }
   }

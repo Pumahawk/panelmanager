@@ -80,4 +80,15 @@ class ProgettiController {
 
     echo json_encode($resp);
   }
+  function deleteAction($params) {
+    $id = $params['id'];
+    Progetto::delete($id);
+
+    $resp = [
+      'status' => 'OK',
+      'message' => ''
+    ];
+
+    echo json_encode($resp);
+  }
 }

@@ -30,5 +30,10 @@ export default {
     axios.get('/REST.php/Project/open/' + id + '.json').then(function(resp){
       callBack(resp);
     });
+  },
+  destroy(id, callBack) {
+    axios.get('/REST.php/Project/delete/' + id).then(function(resp){
+      callBack(resp);
+    });
   }
 }

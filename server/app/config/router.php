@@ -60,6 +60,12 @@ $routeList = [
         'options' => [
           '_controller' => 'Progetti', '_action' => 'getOption'
         ]
+      ],
+      [
+        'name' => 'deletePr', 'pattern' => '/delete/{id:[0-9]+}',
+        'options' => [
+          '_controller' => 'Progetti', '_action' => 'delete'
+        ]
       ]
     ],
     [

@@ -90,6 +90,17 @@ class Progetto {
     } else {
       throw new Exception("Il parametro opt non contiene informazioni corrette", 1);
     }
+  }
 
+  public static function delete($id) {
+    $dataManager = new DataManager();
+    $progettiDB = $dataManager -> openFileJSON('ProgettiDB');
+    $progetti = $progettiDB -> progetti;
+    foreach ($progetti as $key => $progetto) {
+      if($progetto -> id == $id) {
+        array_splice($progettiDB -> progetti, $key, 1);
+      }
+    }
+    $dataManager -> saveFileJSON('ProgettiDB', $progettiDB);
   }
 }
