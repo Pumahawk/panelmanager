@@ -39,7 +39,14 @@ class MediaController {
 
   function deleteAction() {
     // TODO function deleteAction
-    return false;
+		$data = json_decode(file_get_contents('php://input'), true);
+    $id = $data['id'];
+    Media::deleteById($id);
+    $resp = [
+      'status' => 'OK',
+      'message' => ''
+    ];
+    echo json_encode($resp);
   }
 
   function uploadAction() {
@@ -49,7 +56,7 @@ class MediaController {
 
       $mediaManager = new DataManager('media');
 
-      if($mediaManager -> moveUploadedFile($file['tmp_name'], $file['name'])){
+      if($mediaManager -> moveUploadedFile($file['tmp_name'], $file['name'], true)){
         $mediaData = [
           'id' => 0,
           'idProgetto' => $_POST['project'],

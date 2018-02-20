@@ -22,7 +22,18 @@ class Media {
   }
 
   public static function deleteById($id) {
-    // TODO function deleteById
+    $mediaManager = new DataManager();
+    $mediaDB = $mediaManager -> openFileJSON('MediaDB');
+    $media = $mediaDB -> media;
+
+    foreach ($media as $key => $m) {
+      if($m -> id == $id) {
+        array_splice($mediaDB -> media, $key, 1);
+        break;
+      }
+    }
+
+    $mediaManager -> saveFileJSON('MediaDB', $mediaDB);
   }
 
   public static function getAll() {

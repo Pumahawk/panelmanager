@@ -9,5 +9,8 @@ export default {
   },
   upload(data, callBack) {
     axios.post('/REST.php/Media/upload', data).then(callBack)
+  },
+  cancella(id, callBack) {
+    axios.post('/REST.php/Media/delete', {id:id}).then(callBack)
   }
 }

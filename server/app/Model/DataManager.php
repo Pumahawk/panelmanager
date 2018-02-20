@@ -28,7 +28,7 @@ class DataManager
     } else if ($data == null){
       throw new Exception("L'argomento data e' nullo", 1);
     } else {
-      return file_put_contents($this -> basePath . "/" . $file . '.json', json_encode($data));
+      return file_put_contents($this -> basePath . "/" . $file . '.json', json_encode($data, JSON_PRETTY_PRINT));
     }
   }
 

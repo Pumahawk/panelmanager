@@ -11,8 +11,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="media in progetto.media">
-            <td>{{media.id}}</td><td>{{media.nome}}</td><td><button>Cancella</button></td>
+          <tr v-for="media, index in progetto.media">
+            <td>{{media.id}}</td><td>{{media.nome}}</td><td><button @click="cancella(progetto, index)">Cancella</button></td>
           </tr>
         </tbody>
       </table>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-
+import swal from 'sweetalert2'
 import MediaRequest from '@/request/Media'
 export default {
   name: "ElencoMediaPage",
@@ -40,6 +40,31 @@ export default {
         console.error("Error: " + resp.data.message);
       }
     });
+  },
+  methods: {
+    cancella(progetto, index) {
+      var id = progetto.media[index].id;
+      swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          MediaRequest.cancella(id, function(resp) {
+            if(resp.data.status == 'OK') {
+              swal('Deleted!','This media has been deleted.','success');
+              progetto.media.splice(index, 1);
+            } else {
+              swal('Oops!', 'Sorry, there is something wrong...', 'error');
+            }
+          });
+        }
+      });
+    }
   }
 }
 </script>
