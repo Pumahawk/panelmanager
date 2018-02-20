@@ -3,31 +3,26 @@
 class MediaController {
   public function getAllAction() {
     // TODO function getAll
+    $progetti = Progetto::getAll();
+    $media =  Media::getAll();
+    $progettiResp = array();
+
+    foreach ($progetti as $key => $progetto) {
+      $mediaProgetto = array();
+      foreach ($media as $key2 => $m) {
+        if($progetto -> id == $m['idProgetto']) {
+          $mediaProgetto[] = $m;
+        }
+      }
+      $progettiResp[] = [
+        'info' => $progetto,
+        'media' => $mediaProgetto
+      ];
+    }
     $resp = [
       'status' => 'OK',
       'message' => '',
-      'data' => [
-        [
-          'project' => 'ProgettoDemo',
-          'media' => [
-            [
-              'id' => 0,
-              'path' => 'path/to/image',
-              'name' => 'namefile.ext'
-            ]
-          ]
-        ],
-        [
-          'project' => 'ProgettoDemo2',
-          'media' => [
-            [
-              'id' => 0,
-              'path' => 'path/to/image2',
-              'name' => 'namefile2.ext'
-            ]
-          ]
-        ]
-      ]
+      'data' => $progettiResp
     ];
     echo json_encode($resp);
   }
