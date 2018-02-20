@@ -8,7 +8,7 @@
       <div class="form-group">
         <label for="project"><strong>Progetto</strong></label>
         <select v-model="form.project" class="form-control" name="">
-          <option v-for="progetto in progetti" :value="progetto.id">{{progetto.nome}}</option>
+          <option v-for="progetto in progetti" :value="progetto.id">{{progetto.id}} : {{progetto.nome}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -52,7 +52,7 @@ export default {
     uploadMedia() {
       if (this.form.project != null && this.form.file != null) {
         var data = new FormData();
-        data.append('media', this.form.project);
+        data.append('project', this.form.project);
         data.append('file', this.form.file);
 
         MediaRequest.upload(data, function(resp){

@@ -43,11 +43,36 @@ class MediaController {
   }
 
   function uploadAction() {
-    // TODO function uploadAction
-    $resp = [
-      'status' => 'OK',
-      'message' => ''
-    ];
+    $file = $_FILES['file'];
+
+    if($file['type'] == 'image/jpeg') {
+
+      $mediaManager = new DataManager('media');
+
+      if($mediaManager -> moveUploadedFile($file['tmp_name'], $file['name'])){
+        $mediaData = [
+          'id' => 0,
+          'idProgetto' => $_POST['project'],
+          'nome' => $file['name']
+        ];
+        $media = new Media($mediaData);
+        Media::push($media);
+        $resp = [
+          'status' => 'OK',
+          'message' => ''
+        ];
+      } else {
+        $resp = [
+          'status' => 'ERROR',
+          'message' => 'File exist'
+        ];
+      }
+    } else {
+      $resp = [
+        'status' => 'ERROR',
+        'message' => 'Not valid upload'
+      ];
+    }
     echo json_encode($resp);
   }
 }

@@ -41,7 +41,7 @@ class Media {
     // TODO function save
     return;
     if($media instanceof Media) {
-      $dataManager = new DataManager();
+      $mediaManager = new DataManager();
       $mediaDB = $mediaManager -> openFileJSON('MediaDB');
       $mediaList = $mediaDB -> media;
     } else {
@@ -50,7 +50,27 @@ class Media {
     }
   }
 
+  public function toArray() {
+    $data['id'] = $this -> id;
+    $data['idProgetto'] = $this -> idProgetto;
+    $data['nome'] = $this -> nome;
+    return $data;
+  }
+
   public static function push($media) {
-    // TODO function push
+    if($media instanceof Media) {
+      $mediaManager = new DataManager();
+      $mediaDB = $mediaManager -> openFileJSON('MediaDB');
+
+      $media -> id = $mediaDB -> contatore + 1;
+      $mediaDB -> contatore += 1;
+      $mediaDB -> media[] = $media -> toArray();
+
+      $mediaManager -> saveFileJSON('MediaDB', $mediaDB);
+      return true;
+    } else {
+      throw new Exception('Parametro media non e\' una istanza della classe Media', 1);
+
+    }
   }
 }

@@ -5,7 +5,9 @@ class DataManager
   public $basePath = __DIR__.'/../data';
 
   function __construct($basePath = '') {
-    $this -> basePath .= $basePath;
+    if($basePath != ''){
+      $this -> basePath .= '/'.$basePath;
+    }
   }
 
   function openFileJSON($file = null, $bool = false) {
@@ -27,6 +29,14 @@ class DataManager
       throw new Exception("L'argomento data e' nullo", 1);
     } else {
       return file_put_contents($this -> basePath . "/" . $file . '.json', json_encode($data));
+    }
+  }
+
+  function moveUploadedFile($path, $name, $sovrascrivi = false) {
+    if(!file_exists($this->basePath.'/'.$name) || $sovrascrivi) {
+      return move_uploaded_file($path, $this->basePath.'/'.$name);
+    } else {
+      return false;
     }
   }
 }
