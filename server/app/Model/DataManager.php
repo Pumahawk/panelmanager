@@ -8,13 +8,13 @@ class DataManager
     $this -> basePath .= $basePath;
   }
 
-  function openFileJSON($file = null) {
+  function openFileJSON($file = null, $bool = false) {
     if($file == null) {
       throw new Exception("L'argomento file non e' stato specificato.", 1);
     } else if (!file_exists($this -> basePath . "/" . $file . '.json')){
       throw new Exception("File " . $this -> basePath . "/" . $file . ".json non trovato", 1);
     } else {
-      return json_decode(file_get_contents($this -> basePath . "/" . $file . '.json', true));
+      return json_decode(file_get_contents($this -> basePath . "/" . $file . '.json'), $bool);
     }
   }
 

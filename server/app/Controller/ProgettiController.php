@@ -8,26 +8,31 @@ class ProgettiController {
     echo json_encode($resp);
   }
   public function getOptionAction() {
+    $dbManager = new DataManager();
+    $dataOpt = $dbManager -> openFileJSON("ProgettoIMP");
     $resp = [
       'status' => 'OK',
-      'data' => [
-        'nome' => 'DefaultName',
-        'descrizione' => 'DefaultDescription',
-        'extra' => [
-          ['chiave' => 'ChiaveExemple', 'valore' => 'ValoreExemple'],
-          ['chiave' => 'ChiaveExemple2', 'valore' => 'ValoreExemple2']
-        ]
-      ]
-  ];
+      'data' => $dataOpt
+    ];
 
     echo json_encode($resp);
   }
 
   public function saveOptionAction() {
-    $resp = [
-      'status' => 'ERROR',
-      'message' => 'Functionality not supported yet'
-    ];
+		$data = json_decode(file_get_contents('php://input'), true);
+    $dataOpt = $data['options'];
+    try {
+      Progetto::saveOption($dataOpt);
+      $resp = [
+        'status' => 'OK',
+        'message' => ''
+      ];
+    } catch(Exception $e){
+      $resp = [
+        'status' => 'ERROR',
+        'message' => 'Functionality not supported yet'
+      ];
+    }
 
     echo json_encode($resp);
   }

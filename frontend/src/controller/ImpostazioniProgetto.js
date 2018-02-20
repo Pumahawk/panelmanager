@@ -36,7 +36,7 @@ export default {
     });
   },
   saveAll() {
-    ProgettoRequest.save(this.option, function(resp){
+    ProgettoRequest.saveOption(this.option, function(resp){
       if(resp.data.status == "OK"){
         swal(
           'Saved!',

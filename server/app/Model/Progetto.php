@@ -81,4 +81,15 @@ class Progetto {
     }
     return false;
   }
+
+  public static function saveOption($opt) {
+    if($opt != null && isset($opt['nome'], $opt['descrizione'], $opt['extra'])) {
+      $dm = new DataManager();
+      $dm -> saveFileJSON("ProgettoIMP", $opt);
+      return true;
+    } else {
+      throw new Exception("Il parametro opt non contiene informazioni corrette", 1);
+    }
+
+  }
 }
