@@ -32,10 +32,28 @@ class ProgettiController {
     echo json_encode($resp);
   }
   public function saveAction() {
-    $resp = [
-      'status' => 'ERROR',
-      'message' => 'Functionality not supported yet'
+		$data = json_decode(file_get_contents('php://input'));
+    $data = $data -> options;
+    $progetto = [
+      'id' => 0,
+      'nome' => $data -> nome,
+      'descrizione' => $data -> descrizione,
+      'extra' => $data -> extra
     ];
+
+    try {
+      $progetto = new Progetto($progetto);
+      Progetto::push($progetto);
+      $resp = [
+        'status' => 'OK',
+        'message' => ''
+      ];
+    } catch(Exception $e){
+      $resp = [
+        'status' => 'ERROR',
+        'message' => 'Functionality not supported yet'
+      ];
+    }
 
     echo json_encode($resp);
   }

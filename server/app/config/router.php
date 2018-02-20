@@ -52,7 +52,7 @@ $routeList = [
       [
         'name' => 'logut', 'pattern' => '/save',
         'options' => [
-          '_controller' => 'Progetti', '_action' => 'saveOption'
+          '_controller' => 'Progetti', '_action' => 'save'
         ]
       ],
       [
@@ -63,7 +63,7 @@ $routeList = [
       ]
     ],
     [
-      'group' => '/Media',
+      'group' => '/Media', 'middleware' => ['logged'],
       [
         'name' => 'allMedia', 'pattern' => '/get_all.json',
         'options' => [
