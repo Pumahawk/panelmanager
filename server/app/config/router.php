@@ -27,6 +27,21 @@ $routeList = [
         'options' => [
           '_controller' => 'User', '_action' => 'logout'
         ]
+      ],
+      [
+        'group'=>'/edit',
+        [
+          'name' => 'changePassword', 'pattern' => '/mail',
+          'options' => [
+            '_controller' => 'User', '_action' => 'editMail'
+          ]
+        ],
+        [
+          'name' => 'changePassword', 'pattern' => '/password',
+          'options' => [
+            '_controller' => 'User', '_action' => 'editPassword'
+          ]
+        ]
       ]
     ],
     [

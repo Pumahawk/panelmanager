@@ -21,4 +21,28 @@ class UserController {
     ];
 		echo json_encode($ret);
   }
+	function editMailAction() {
+		$data = json_decode(file_get_contents('php://input'), true);
+		if(isset($data['email'])) {
+	    $dataManager = new DataManager();
+	    $imp = $dataManager -> openFileJSON('UserIMP');
+			$imp -> email = $data['email'];
+			User::editData((array) $imp);
+			$resp['status'] = 'OK';
+			$resp['message'] = 'Status ok';
+			echo json_encode($ret);
+		}
+	}
+	function editPasswordAction() {
+		$data = json_decode(file_get_contents('php://input'), true);
+		if(isset($data['password'])) {
+	    $dataManager = new DataManager();
+	    $imp = $dataManager -> openFileJSON('UserIMP');
+			$imp -> password = md5($data['password']);
+			User::editData((array) $imp);
+			$resp['status'] = 'OK';
+			$resp['message'] = 'Status ok';
+			echo json_encode($ret);
+		}
+	}
 }

@@ -15,7 +15,7 @@
       <form @submit.prevent="changeMail()" class="col-auto form">
         <div class="form-group">
           <label><strong>E-Mail</strong></label>
-          <input required class="form-control" type="email" name="email" value="" placeholder="New mail login">
+          <input v-model="form.mail" required class="form-control" type="email" name="email" value="" placeholder="New mail login">
         </div>
         <div class="text-right form-group">
           <button type="submit">Change E-Mail</button>
@@ -24,15 +24,15 @@
       </form>
     </div>
     <hr>
-    <form @sumbit.prevent="changePassword()" class="row">
+    <form @submit.prevent="changePassword()" class="row">
       <div class="col-auto form">
         <div class="form-group">
           <label><strong>Password</strong></label>
-          <input required class="form-control" type="password" name="pasword" value="" placeholder="New password">
+          <input v-model="form.password" required class="form-control" type="password" name="pasword" value="" placeholder="New password">
         </div>
         <div class="form-group">
           <label><strong>Repeat password</strong></label>
-          <input required class="form-control" type="password" name="repeatpassword" value="" placeholder="Repeat password">
+          <input v-model="form.ripetipassword" required class="form-control" type="password" name="repeatpassword" value="" placeholder="Repeat password">
         </div>
         <div class="text-right form-group">
           <button type="submit">Change password</button>
@@ -43,19 +43,64 @@
 </template>
 <script>
   import swal from 'sweetalert2'
+  import UserRequest from '@/request/User'
   export default {
     name: "ProfilePage",
     data() {
       return {
-        editMail: false
+        editMail: false,
+        form: {
+          mail: null,
+          password: null,
+          ripetipassword: null
+        }
       }
     },
     methods: {
       changePassword() {
-        swal('Oops...', 'Methods non supported yet', 'error');
+        var vuec = this;
+        if(vuec.form.password == vuec.form.ripetipassword)
+        swal({
+          title: 'Are you sure?',
+          text: "Do you realy want change password?!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, change it!'
+        }).then((result) => {
+          if (result.value) {
+            UserRequest.editPassword(vuec.form.password, function(resp){
+              swal(
+                'Changed!',
+                'This password has been chaged.',
+                'success'
+              )
+            });
+          }
+        });
       },
       changeMail() {
-        swal('Oops...', 'Methods non supported yet', 'error');
+        var vuec = this;
+        swal({
+          title: 'Are you sure?',
+          text: "Do you realy want change email?!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, change it!'
+        }).then((result) => {
+          if (result.value) {
+            UserRequest.editMail(vuec.form.mail, function(resp){
+              swal(
+                'Changed!',
+                'This email has been chaged.',
+                'success'
+              )
+            });
+          }
+        });
       }
     }
   }
