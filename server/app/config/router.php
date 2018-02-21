@@ -29,6 +29,12 @@ $routeList = [
         ]
       ],
       [
+        'name' => 'getinfo', 'pattern' => '/info',
+        'options' => [
+          '_controller' => 'User', '_action' => 'info'
+        ]
+      ],
+      [
         'group'=>'/edit',
         [
           'name' => 'changePassword', 'pattern' => '/mail',

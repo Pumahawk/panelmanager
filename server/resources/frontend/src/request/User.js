@@ -12,5 +12,8 @@ export default {
   },
   editPassword(password, callBack) {
     axios.post('/REST.php/User/edit/password', {password:password}).then(callBack);
+  },
+  info(callBack) {
+    axios.get('/REST.php/User/info').then(callBack);
   }
 }

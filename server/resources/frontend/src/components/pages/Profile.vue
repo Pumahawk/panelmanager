@@ -5,7 +5,7 @@
     <h2> Option login</h2>
     <hr>
     <p>
-      <strong>E-Mail: </strong>user@user.it
+      <strong>E-Mail: </strong>{{mail}}
       <div class="p">
         <button @click="editMail=true" type="button">Edit E-Mail</button>
       </div>
@@ -53,8 +53,15 @@
           mail: null,
           password: null,
           ripetipassword: null
-        }
+        },
+        mail: ''
       }
+    },
+    beforeCreate() {
+      var vuec = this;
+      UserRequest.info(function(resp) {
+        vuec.mail = resp.data.mail;
+      });
     },
     methods: {
       changePassword() {

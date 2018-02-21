@@ -30,7 +30,7 @@ class UserController {
 			User::editData((array) $imp);
 			$resp['status'] = 'OK';
 			$resp['message'] = 'Status ok';
-			echo json_encode($ret);
+			echo json_encode($resp);
 		}
 	}
 	function editPasswordAction() {
@@ -42,7 +42,16 @@ class UserController {
 			User::editData((array) $imp);
 			$resp['status'] = 'OK';
 			$resp['message'] = 'Status ok';
-			echo json_encode($ret);
+			echo json_encode($resp);
 		}
+	}
+
+	function infoAction() {
+    $dataManager = new DataManager();
+    $imp = $dataManager -> openFileJSON('UserIMP');
+
+		$resp['mail'] = $imp -> email;
+		echo json_encode($resp);
+
 	}
 }
