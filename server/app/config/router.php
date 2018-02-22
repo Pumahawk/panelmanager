@@ -1,5 +1,9 @@
 <?php
+
+$optionLoader = new Option\Option();
+
 $routeList = [
+  $optionLoader->readOptions('router/demo'),
   [
     'group' => '/REST.php',
     [

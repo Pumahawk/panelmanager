@@ -1,11 +1,42 @@
-<?php $message = $data['demoMessage'] ?>
-<h1>Welcome on EasyFrPHP</h1>
-<p>Demo message: <?=$message ?></p>
-<h2>Demo link</h2>
+<?php $project = $data['project'] ?>
+<h1>Demo Frontend PanelManager</h1>
+<hr>
+<h2>Project info</h2>
+<hr>
 <p>
-	<ul>
-		<li>Demo page home: <a href="/">/</a></li>
-		<li>Demo page 1: <a href="/demo/middleware_demo.html">/demo/middleware_demo.html</a></li>
-		<li>Demo page 2: <a href="/demo/multi_middleware_demo.html">/demo/multi_middleware_demo.html</a></li>
-	</ul>
+<table width="100%">
+	<thead>
+		<tr>
+			<td>ID</td><td>Nome</td><td>Extra</td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($project as $progetto): ?>
+		<tr>
+			<td><?=$progetto['info'] -> id?></td><td><?=$progetto['info'] -> nome?></td><td><?=json_encode($progetto['info'] -> extra) ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
 </p>
+<hr>
+<h2>Media Project</h2>
+<hr>
+<?php foreach ($project as $progetto): ?>
+<strong><?= $progetto['info'] -> id ?>:<?= $progetto['info'] -> nome ?></strong>
+<table width="100%">
+	<thead>
+		<tr>
+			<td>ID</td><td>Media</td>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach ($progetto['media'] as $media): ?>
+		<tr>
+			<td><?= $media['id']?></td><td><a href="app/data/media/<?= $media['nome'] ?>"><?= $media['nome'] ?></a></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<hr>
+<?php endforeach; ?>

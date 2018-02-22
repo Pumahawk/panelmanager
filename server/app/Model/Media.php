@@ -84,4 +84,25 @@ class Media {
 
     }
   }
+
+  public static function getAllProject() {
+    $progetti = Progetto::getAll();
+    $media =  Media::getAll();
+    $progettiResp = array();
+
+    foreach ($progetti as $key => $progetto) {
+      $mediaProgetto = array();
+      foreach ($media as $key2 => $m) {
+        if($progetto -> id == $m['idProgetto']) {
+          $mediaProgetto[] = $m;
+        }
+      }
+      $progettiResp[] = [
+        'info' => $progetto,
+        'media' => $mediaProgetto
+      ];
+    }
+
+    return $progettiResp;
+  }
 }

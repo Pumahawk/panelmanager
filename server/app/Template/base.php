@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>EasyFrPHP Demo</title>
+		<title>Demo FrontEnd PanelManager</title>
 	</head>
 	<body>
 		<?php $this -> render($this -> centerPage, $data) ?>
