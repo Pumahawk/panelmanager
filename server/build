@@ -1,0 +1,2 @@
+#!/bin/bash
+zip -r build.zip app admin composer.lock composer.json LICENSE vendor bin index.php README.md REST.php
