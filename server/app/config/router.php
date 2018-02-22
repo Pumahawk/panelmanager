@@ -125,7 +125,8 @@ $routeList = [
           '_controller' => 'Media', '_action' => 'upload'
         ]
       ]
-    ]
+    ],
+    $optionLoader->readOptions('router/fattura')
   ]
 ];
 

@@ -7,13 +7,13 @@
 <table width="100%">
 	<thead>
 		<tr>
-			<td>ID</td><td>Nome</td><td>Extra</td>
+			<td>ID</td><td>Nome</td><td>Descrizione</td><td>Extra</td>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach ($project as $progetto): ?>
 		<tr>
-			<td><?=$progetto['info'] -> id?></td><td><?=$progetto['info'] -> nome?></td><td><?=json_encode($progetto['info'] -> extra) ?></td>
+			<td><?=$progetto['info'] -> id?></td><td><?=$progetto['info'] -> nome?></td><td><?=$progetto['info'] -> descrizione?></td><td><?=json_encode($progetto['info'] -> extra) ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
