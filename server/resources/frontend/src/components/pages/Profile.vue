@@ -66,26 +66,29 @@
     methods: {
       changePassword() {
         var vuec = this;
-        if(vuec.form.password == vuec.form.ripetipassword)
-        swal({
-          title: 'Are you sure?',
-          text: "Do you realy want change password?!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, change it!'
-        }).then((result) => {
-          if (result.value) {
-            UserRequest.editPassword(vuec.form.password, function(resp){
-              swal(
-                'Changed!',
-                'This password has been chaged.',
-                'success'
-              )
-            });
-          }
-        });
+        if(vuec.form.password == vuec.form.ripetipassword) {
+          swal({
+            title: 'Are you sure?',
+            text: "Do you realy want change password?!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, change it!'
+          }).then((result) => {
+            if (result.value) {
+              UserRequest.editPassword(vuec.form.password, function(resp){
+                swal(
+                  'Changed!',
+                  'This password has been chaged.',
+                  'success'
+                )
+              });
+            }
+          });
+        } else {
+          swal('Oops...', 'The second password is wrong...', 'error');
+        }
       },
       changeMail() {
         var vuec = this;
