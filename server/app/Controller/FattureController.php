@@ -56,9 +56,9 @@ class FattureController {
 
 	public function deleteAction() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
-		if(isset($_POST['id'])) {
-			$id = $_POST['id'];
-			if(Fattura::delete($id)) {
+		if(isset($_POST['name'])) {
+			$name = $_POST['name'];
+			if(Fattura::delete($name)) {
 				$resp['status'] = 'OK';
 			} else {
 				$resp['status'] = 'ERROR';
