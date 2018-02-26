@@ -71,4 +71,32 @@ class FattureController {
 			echo json_encode($resp);
 		}
 	}
+
+	function saveOptionAction() {
+		$data = json_decode(file_get_contents('php://input'));
+		if(isset($data -> from, $data -> bill, $data -> ship, $data -> terms)){
+			Fattura::saveOption($data);
+			$resp = [
+				'status' => 'OK',
+				'message' => ''
+			];
+		} else {
+			$resp = [
+				'status' => 'ERROR',
+				'message' => 'Bad request'
+			];
+		}
+		echo json_encode($resp);
+	}
+
+	function getOptionAction() {
+		$opt = Fattura::getOption();
+
+		$resp = [
+			'status' => 'OK',
+			'message' => '',
+			'data' => $opt
+		];
+		echo json_encode($resp);
+	}
 }

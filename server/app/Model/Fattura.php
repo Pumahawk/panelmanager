@@ -72,4 +72,26 @@ class Fattura {
       return false;
     }
   }
+
+  public static function getOption() {
+		$dataManager = new DataManager();
+		$opt = $dataManager -> openFileJSON('FatturaIMP');
+
+    return $opt;
+  }
+
+  public static function saveOption($data){
+    if(isset($data -> from, $data -> bill, $data -> ship, $data -> terms)){
+  		$dataManager = new DataManager();
+      $data = [
+        'from' => $data -> from,
+        'bill' => $data -> bill,
+        'ship' => $data -> ship,
+        'terms' => $data -> terms
+      ];
+  		$dataManager -> saveFileJSON('FatturaIMP', $data);
+    } else {
+      throw new Exception("Parametro data non contiene le informazioni necessarie per salvare le impostazioni delle fatture.", 1);
+    }
+  }
 }

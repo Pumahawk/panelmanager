@@ -26,5 +26,20 @@ return [
   		'options' => [
   		  '_controller' => 'Fatture', '_action' => 'delete'
       ]
+    ],
+    [
+      'group'=>'/Option',
+      [
+        'name' => 'saveOptionFattura', 'pattern' => '/save',
+        'options' => [
+          '_controller' => 'Fatture', '_action' => 'saveOption'
+        ]
+      ],
+      [
+        'name' => 'getOptionFattura', 'pattern' => '',
+        'options' => [
+          '_controller' => 'Fatture', '_action' => 'getOption'
+        ]
+      ]
     ]
 ];
