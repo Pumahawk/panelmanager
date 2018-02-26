@@ -6,7 +6,7 @@
           <router-link to="/">
             <a class="nav-link" href="#">
               <span data-feather="home"></span>
-              DemoDashboard <span class="sr-only">(current)</span>
+              Info <span class="sr-only">(current)</span>
             </a>
         </router-link>
         </li>
