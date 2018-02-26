@@ -97,6 +97,8 @@
   </div>
 </template>
 <script>
+import freq from '@/request/Fattura'
+import swal from 'sweetalert2'
 export default {
   name: "NuovaFattura",
   data() {
@@ -129,6 +131,15 @@ export default {
       return total;
     }
   },
+  beforeCreate(){
+    var vuec = this;
+    freq.getOption(function(resp) {
+      vuec.form.from = resp.data.data.from;
+      vuec.form.ship = resp.data.data.ship;
+      vuec.form.bill = resp.data.data.bill;
+      vuec.form.termsConditions = resp.data.data.terms;
+    });
+  },
   methods: {
     newItem() {
       this.form.items.push({qty: 0, descrizione: '', uPrice: 0, tax: 0});
@@ -137,8 +148,21 @@ export default {
       this.form.items.splice(index,1);
     },
     creaFattura() {
-      // TODO creaFattura da implementare
-      alert('Funzionalita mancante');
+      var vuec = this;
+      var data = this.form;
+      data.ship_to = data.ship;
+      data.bill_to = data.bill;
+      data.terms_conditions = data.termsConditions;
+      data.due_date = data.dueDate;
+      vuec.form.due_date = data.dueDate;
+      vuec.form.date = data.invoiceDate;
+      freq.create(data, function(resp) {
+        if(resp.data.status === 'OK') {
+          swal('Fattura create', 'La fattura e\' stata creata con successo!', 'success');
+        } else {
+          swal('Oops...', resp.data.message, 'error');
+        }
+      });
     }
   }
 }
