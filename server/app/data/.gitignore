@@ -1,3 +1,9 @@
 /*
 !*.init.json
 !.gitignore
+!fatture
+fatture/*
+!fatture/README.md
+!media
+media/*
+!media/README.md
