@@ -11,6 +11,9 @@ class FattureController {
 			$_POST['date'], $_POST['pd'], $_POST['due_date'], $_POST['terms_conditions'],
 			$_POST['items']
 		)){
+
+			$overwrite = (isset($_POST['overwrite'])) ? $_POST['overwrite'] : false;
+
 			$from = $_POST['from'];
 			$billTo = $_POST['bill_to'];
 			$shipTo = $_POST['ship_to'];
@@ -22,11 +25,11 @@ class FattureController {
 			$items = $_POST['items'];
 
 			if(Fattura::generate($from, $billTo, $shipTo, $invoice, $date, $pd,
-															$dueDate, $termsConditions, $items)) {
+															$dueDate, $termsConditions, $items, $overwrite)) {
 					$resp['status'] = 'OK';
 			} else {
 					$resp['status'] = 'ERROR';
-					$resp['message'] = 'Error to generate fattura';
+					$resp['message'] = ($overwrite == false) ? 'Fattura gia esistente.' : 'Errore generazione fattura';
 			}
 		} else {
 			$resp['status'] = 'ERROR';

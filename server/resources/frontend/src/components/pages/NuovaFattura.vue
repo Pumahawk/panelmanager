@@ -23,6 +23,14 @@
     				<label><strong>Invoice</strong></label>
     				<input v-model="form.invoice" class="form-control" type="number" required="true">
     			</div>
+          <div class="form-group">
+            <div class="form-check">
+              <input v-model="form.overwrite" class="form-check-input" type="checkbox">
+              <label class="form-check-label" for="defaultCheck1">
+                <strong>Overwrite invoice</strong>
+              </label>
+            </div>
+          </div>
     			<div class="form-group">
     				<label><strong>Invoice Date</strong></label>
     				<input v-model="form.invoiceDate" class="form-control" type="text" required="true">
@@ -114,6 +122,7 @@ export default {
         ship: '',
         bill: '',
         invoice: '',
+        overwrite: false,
         invoiceDate: dd + '/' + mm + '/' + yyyy,
         pd: '',
         dueDate: dueDate.getDate() + '/' + (dueDate.getMonth() + 1) + '/' + dueDate.getFullYear(),

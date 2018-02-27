@@ -33,9 +33,13 @@ class Fattura {
     return $listRet;
   }
   public static function generate($from, $billTo, $shipTo, $invoice,
-                            $date, $pd, $dueDate, $termsConditions, $items) {
-    //TODO metodo Fattura::generate
-
+                            $date, $pd, $dueDate, $termsConditions, $items, $overWrite = true) {
+    $fileName = $invoice.".pdf";
+    if(file_exists(Fattura::$dirFatture.'/'.$fileName)) {
+      if(!$overWrite) {
+        return false;
+      }
+    }
 
 		$ftd['from'] = $from;
 		$ftd['bill_to'] = $billTo;
@@ -60,7 +64,6 @@ class Fattura {
     // Output the generated PDF to Browser
     $doc = $dompdf->output();
 
-    $fileName = $invoice.".pdf";
     file_put_contents(Fattura::$dirFatture.'/'.$fileName, $doc);
     return true;
   }
