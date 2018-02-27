@@ -1,19 +1,20 @@
 import axios from 'axios'
+import config from './config'
 
 export default {
   create(fattura, callBack) {
-    axios.post('/REST.php/Fattura/create', fattura).then(callBack);
+    axios.post(config.restPath + '/Fattura/create', fattura).then(callBack);
   },
   getAll(callBack) {
-    axios.get('/REST.php/Fattura/all').then(callBack);
+    axios.get(config.restPath + '/Fattura/all').then(callBack);
   },
   remove(name, callBack) {
-    axios.post('/REST.php/Fattura/delete', {name:name}).then(callBack);
+    axios.post(config.restPath + '/Fattura/delete', {name:name}).then(callBack);
   },
   getOption(callBack) {
-    axios.get('/REST.php/Fattura/Option').then(callBack);
+    axios.get(config.restPath + '/Fattura/Option').then(callBack);
   },
   saveOption(option, callBack) {
-    axios.post('/REST.php/Fattura/Option/save', option).then(callBack);
+    axios.post(config.restPath + '/Fattura/Option/save', option).then(callBack);
   }
 }
