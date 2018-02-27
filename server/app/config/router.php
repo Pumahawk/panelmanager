@@ -6,15 +6,6 @@ $routeList = [
   $optionLoader->readOptions('router/demo'),
   [
     'group' => '/REST.php',
-    [
-      'group'=>'/tmp',
-      [
-        'name' => 'tmptest', 'pattern' => '/test_data_manager',
-        'options' => [
-          '_controller' => 'Test', '_action' => 'dataManager'
-        ]
-      ]
-    ],
   	[
   		'group' => '/App',
   		[
