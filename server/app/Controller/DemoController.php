@@ -4,7 +4,7 @@ use View\View;
 
 class DemoController {
   function homeAction() {
-    $progettiResp = Media::getAllProject();
+    $progettiResp = PanelManager\Media::getAllProject();
     $data = [
       'project' => $progettiResp
     ];
