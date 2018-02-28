@@ -31,4 +31,5 @@ export default {
 <style>
 	@import 'bootstrap/dist/css/bootstrap.min.css';
 	@import './style/dashboard.css';
+	@import './style/custom.css';
 </style>
