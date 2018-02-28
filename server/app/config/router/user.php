@@ -5,13 +5,13 @@ return [
   [
     'name' => 'logut', 'pattern' => '/logout',
     'options' => [
-      '_controller' => 'User', '_action' => 'logout'
+      '_controller' => 'PanelManager\\User', '_action' => 'logout'
     ]
   ],
   [
     'name' => 'getinfo', 'pattern' => '/info',
     'options' => [
-      '_controller' => 'User', '_action' => 'info'
+      '_controller' => 'PanelManager\\User', '_action' => 'info'
     ]
   ],
   [
@@ -19,13 +19,13 @@ return [
     [
       'name' => 'changePassword', 'pattern' => '/mail',
       'options' => [
-        '_controller' => 'User', '_action' => 'editMail'
+        '_controller' => 'PanelManager\\User', '_action' => 'editMail'
       ]
     ],
     [
       'name' => 'changePassword', 'pattern' => '/password',
       'options' => [
-        '_controller' => 'User', '_action' => 'editPassword'
+        '_controller' => 'PanelManager\\User', '_action' => 'editPassword'
       ]
     ]
   ]

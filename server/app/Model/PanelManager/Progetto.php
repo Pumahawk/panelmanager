@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 class Progetto {
 
     public $id;

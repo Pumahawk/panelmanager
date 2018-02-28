@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 use View\View;
 
 class FattureController {

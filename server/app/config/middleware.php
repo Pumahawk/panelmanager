@@ -1,7 +1,7 @@
 <?php
 	$middleware = [
 		'logged' => function($data, $middleware){
-			if(User::isLogged()) {
+			if(PanelManager\User::isLogged()) {
 				$middleware -> exec();
 			} else {
 				$ret = [

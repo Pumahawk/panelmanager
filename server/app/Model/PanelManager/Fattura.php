@@ -1,11 +1,13 @@
 <?php
 
+namespace PanelManager;
+
 use Dompdf\Dompdf;
 use View\View;
 
 class Fattura {
 
-  public static $dirFatture = __DIR__.'/../data/fatture';
+  public static $dirFatture = __DIR__.'/../../data/fatture';
 
   public static function open($fattura) {
     //TODO metodo Fattura::open

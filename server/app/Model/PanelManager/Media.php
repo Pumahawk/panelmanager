@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 class Media {
 
   public $id;

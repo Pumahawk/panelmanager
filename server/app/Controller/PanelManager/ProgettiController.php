@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 class ProgettiController {
   public function getAllAction() {
     $resp['status'] = 'OK';

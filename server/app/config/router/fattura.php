@@ -6,25 +6,25 @@ return [
     [
   		'name' => 'server_main', 'pattern' => '/create',
   		'options' => [
-  		  '_controller' => 'Fatture', '_action' => 'create'
+  		  '_controller' => 'PanelManager\\Fatture', '_action' => 'create'
       ]
     ],
     [
   		'name' => 'server_main', 'pattern' => '/{fattura:[0-9]+.pdf}',
   		'options' => [
-  		  '_controller' => 'Fatture', '_action' => 'show'
+  		  '_controller' => 'PanelManager\\Fatture', '_action' => 'show'
       ]
     ],
     [
   		'name' => 'server_main', 'pattern' => '/all',
   		'options' => [
-  		  '_controller' => 'Fatture', '_action' => 'getAll'
+  		  '_controller' => 'PanelManager\\Fatture', '_action' => 'getAll'
       ]
     ],
     [
   		'name' => 'server_main', 'pattern' => '/delete',
   		'options' => [
-  		  '_controller' => 'Fatture', '_action' => 'delete'
+  		  '_controller' => 'PanelManager\\Fatture', '_action' => 'delete'
       ]
     ],
     [
@@ -32,13 +32,13 @@ return [
       [
         'name' => 'saveOptionFattura', 'pattern' => '/save',
         'options' => [
-          '_controller' => 'Fatture', '_action' => 'saveOption'
+          '_controller' => 'PanelManager\\Fatture', '_action' => 'saveOption'
         ]
       ],
       [
         'name' => 'getOptionFattura', 'pattern' => '',
         'options' => [
-          '_controller' => 'Fatture', '_action' => 'getOption'
+          '_controller' => 'PanelManager\\Fatture', '_action' => 'getOption'
         ]
       ]
     ]

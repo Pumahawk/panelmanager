@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 class MediaController {
   public function getAllAction() {
     // TODO function getAll

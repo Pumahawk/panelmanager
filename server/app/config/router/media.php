@@ -5,25 +5,25 @@ return [
   [
     'name' => 'allMedia', 'pattern' => '/get_all.json',
     'options' => [
-      '_controller' => 'Media', '_action' => 'getAll'
+      '_controller' => 'PanelManager\\Media', '_action' => 'getAll'
     ]
   ],
   [
     'name' => 'getByProject', 'pattern' => '/project',
     'options' => [
-      '_controller' => 'Media', '_action' => 'getByIdProject'
+      '_controller' => 'PanelManager\\Media', '_action' => 'getByIdProject'
     ]
   ],
   [
     'name' => 'deleteMedia', 'pattern' => '/delete',
     'options' => [
-      '_controller' => 'Media', '_action' => 'delete'
+      '_controller' => 'PanelManager\\Media', '_action' => 'delete'
     ]
   ],
   [
     'name' => 'uploadMedia', 'pattern' => '/upload',
     'options' => [
-      '_controller' => 'Media', '_action' => 'upload'
+      '_controller' => 'PanelManager\\Media', '_action' => 'upload'
     ]
   ]
 ];

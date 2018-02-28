@@ -1,5 +1,7 @@
 <?php
 
+namespace PanelManager;
+
 class User {
   public static function login($data){
     $dataManager = new DataManager();
