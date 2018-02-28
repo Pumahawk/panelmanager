@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Elenco progetti</h2>
+    <h2>List of projects</h2>
     <div class="table-responsive">
       <table class="table table-striped table-sm">
         <thead>
@@ -9,10 +9,10 @@
               ID
             </td>
             <td>
-              Nome
+              Name
             </td>
             <td>
-              Azioni
+              Actions
             </td>
           </tr>
         </thead>
@@ -27,11 +27,11 @@
             <td>
               <router-link :to="{ name: 'progetto', params: {id: progetto.id} }">
                 <button>
-                  Apri
+                  Open
                 </button>
               </router-link>
               <button @click="destory(index)">
-                Cancella
+                Delete
               </button>
             </td>
           </tr>

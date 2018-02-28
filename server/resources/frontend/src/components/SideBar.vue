@@ -11,7 +11,7 @@
         </router-link>
         </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Progetti</span>
+          <span>Projects</span>
           <a class="d-flex align-items-center text-muted" href="#">
             <span data-feather="plus-circle"></span>
           </a>
@@ -19,21 +19,21 @@
         <li class="nav-item">
           <router-link to="/progetti">
             <a class="nav-link" href="#">
-              Elenco progetti
+              List of projects
             </a>
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/nuovo_progetto">
             <a class="nav-link" href="#">
-              Nuovo progetto
+              New project
             </a>
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/impostazioni_progetto">
             <a class="nav-link" href="#">
-              Impostazioni progetto
+              Project settings
             </a>
           </router-link>
         </li>
@@ -47,7 +47,7 @@
           <router-link to="/media">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Elenco media
+              List of media
             </a>
           </router-link>
         </li>
@@ -60,7 +60,7 @@
           </router-link>
         </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Fatture</span>
+          <span>Invoices</span>
           <a class="d-flex align-items-center text-muted" href="#">
             <span data-feather="plus-circle"></span>
           </a>
@@ -69,26 +69,26 @@
           <router-link to="/fatture">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Elenco fatture
+              List of invoices
             </a>
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/nuova_fattura">
             <a class="nav-link" href="#">
-              Nuova fattura
+              New invoices
             </a>
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/impostazioni_fatture">
             <a class="nav-link" href="#">
-              Impostazioni fatture
+              Invoices settings
             </a>
           </router-link>
         </li>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Profilo</span>
+          <span>Profile</span>
           <a class="d-flex align-items-center text-muted" href="#">
             <span data-feather="plus-circle"></span>
           </a>
@@ -97,7 +97,7 @@
           <router-link to="/profilo">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Gestione profilo
+              Profile management
             </a>
           </router-link>
         </li>

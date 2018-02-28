@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Impostazioni fattura</h1>
+    <h1>Invoices settings</h1>
     <hr>
     <button @click="saveImpostazioni()" class="btn btn-success" type="button"><strong>Save</strong></button>
     <hr>
@@ -18,7 +18,7 @@
         <textarea v-model="form.ship" class="form-control" rows="" cols=""></textarea>
       </div>
       <div class="form-group">
-        <label><strong>Default Termini e condizioni</strong></label>
+        <label><strong>Default Terms and Conditions</strong></label>
         <textarea v-model="form.termsConditions" class="form-control" rows="" cols=""></textarea>
       </div>
     </form>

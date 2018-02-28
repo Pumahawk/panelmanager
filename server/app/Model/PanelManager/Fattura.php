@@ -50,8 +50,13 @@ class Fattura {
 		$ftd['date'] = $date;
 		$ftd['pd'] = $pd;
 		$ftd['due_date'] = $dueDate;
-		$ftd['items_conditions'] = $termsConditions;
+		$ftd['terms_conditions'] = $termsConditions;
 		$ftd['items'] = $items;
+
+    $ftd['from'] = str_replace("\n", '<br>', $ftd['from']);
+    $ftd['bill_to'] = str_replace("\n", '<br>', $ftd['bill_to']);
+    $ftd['ship_to'] = str_replace("\n", '<br>', $ftd['ship_to']);
+    $ftd['terms_conditions'] = str_replace("\n", '<br>', $ftd['terms_conditions']);
 
     $v = new View();
     ob_start();

@@ -49,38 +49,38 @@
       <div v-for="item, index in form.items" class="row">
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Quantita</strong></label>
+            <label><strong>Quantity</strong></label>
             <input v-model="item.qty" class='form-control' type="number" required="true">
           </div>
         </div>
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Descrizione</strong></label>
+            <label><strong>Description</strong></label>
             <input v-model="item.descrizione" class='form-control' type="text" required="true">
           </div>
         </div>
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Prezzo unita</strong></label>
+            <label><strong>Unit price</strong></label>
             <input v-model="item.uPrice" class='form-control' type="number" required="true">
           </div>
         </div>
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Totale</strong></label>
+            <label><strong>Total</strong></label>
             <input v-model="item.qty * item.uPrice" class='form-control' type="text" readonly="true">
           </div>
         </div>
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Tasse</strong></label>
+            <label><strong>Tax</strong></label>
             <input v-model="item.tax" class='form-control' type="number" required="true">
           </div>
         </div>
         <div class="col-md">
           <div class="form-group">
-            <label><strong>Azioni</strong></label><br>
-            <button @click="delItem(index)" type="button">Cancella</button>
+            <label><strong>Actions</strong></label><br>
+            <button @click="delItem(index)" type="button">Remove</button>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
       </div>
       <hr>
       <div class="form-group">
-        <label><strong>Termini e condizioni</strong></label>
+        <label><strong>Terms and Conditions</strong></label>
         <textarea v-model="form.termsConditions" class="form-control" rows="" cols="" required="true"></textarea>
       </div>
       <hr>
@@ -98,7 +98,7 @@
           <strong>Total USD: {{total}}</strong>
         </div>
         <div class="m-2">
-          <button type="submit">Salva fattura</button>
+          <button type="submit">Save invoice</button>
         </div>
       </div>
     </form>
@@ -167,7 +167,7 @@ export default {
       vuec.form.date = data.invoiceDate;
       freq.create(data, function(resp) {
         if(resp.data.status === 'OK') {
-          swal('Fattura create', 'La fattura e\' stata creata con successo!', 'success');
+          swal('Success', 'This invoice has been created successfully!', 'success');
         } else {
           swal('Oops...', resp.data.message, 'error');
         }

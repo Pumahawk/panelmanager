@@ -1,19 +1,19 @@
 <template>
   <div>
-    <h1>Nuovo progetto</h1>
+    <h1>New project</h1>
     <hr>
     <button class="btn btn-success" @click="save()"><strong>Save</strong></button>
     <hr>
-    <h2>Dati progetto</h2>
+    <h2>Project data</h2>
     <hr>
     <form class="row">
       <div class="col">
         <div class="form-group">
-          <label for="nome"><strong>Nome</strong></label>
+          <label for="nome"><strong>Name</strong></label>
           <input v-model="progetto.nome" type="text" class="form-control" id="nome" aria-describedby="">
         </div>
         <div class="form-group">
-          <label for="defaultDescrizione"><strong>Default descrizione</strong></label>
+          <label for="defaultDescrizione"><strong>Description</strong></label>
           <textarea v-model="progetto.descrizione" class="form-control" id="defaultDescrizione" rows="3"></textarea>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <h1>Dettagli progetto</h1>
+    <h1>Project details</h1>
     <h2>{{progetto.nome}}</h2>
     <hr>
       <router-link :to="{ name: 'progettoEdit', params: {id:progetto.id} }">
-        <button class="btn btn-info">Modifica</button>
+        <button class="btn btn-info">Edit</button>
       </router-link>
     <hr>
     <div class="row">
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <strong>Nome</strong>
+            <strong>Name</strong>
           </div>
           <div class="col">
             {{progetto.nome}}
@@ -37,7 +37,7 @@
       <div class="col">
         <div class="row">
           <div class="col">
-            <strong>Descrizione</strong>
+            <strong>Description</strong>
           </div>
         </div>
         <div class="row">

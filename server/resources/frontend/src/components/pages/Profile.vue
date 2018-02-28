@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Info profilo</h1>
+    <h1>Info profile</h1>
     <hr>
-    <h2> Option login</h2>
+    <h2>Option login</h2>
     <hr>
     <p>
       <strong>E-Mail: </strong>{{mail}}

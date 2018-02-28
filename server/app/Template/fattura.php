@@ -11,11 +11,7 @@
   <body>
     <h1>Invoice</h1>
     <p>
-      Europe Rolling Shutters. Inc Office (216)-961-5953<br>
-      4715 Cli.. Ave, Fax: (216)-651-3?64<br>
-      Clevelad, OH 44102<br>
-      www.europeshutters.us.com<br>
-      www.tubolarmotor.us<br>
+      <?=$ft['from']?>
     </p>
     <table width="100%">
       <tr><td>BILL TO</td><td>SHIP TO</td>
@@ -45,7 +41,7 @@
         $item['amount'] = $item['uPrice'] * $item['qty'];
         $total += $item['amount'];
         ?>
-        <tr><td><?= $item['qty'] ?></td><td><?= $item['description'] ?></td><td><?= $item['uPrice'] ?></td><td><?= $item['amount'] ?></td></tr>
+        <tr><td><?= $item['qty'] ?></td><td><?= $item['descrizione'] ?></td><td><?= $item['uPrice'] ?></td><td><?= $item['amount'] ?></td></tr>
       <?php endforeach; ?>
     </table>
     <table>

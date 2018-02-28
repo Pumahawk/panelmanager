@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Impostazioni progetto</h1>
+    <h1>Project settings</h1>
     <hr>
     <button class="btn btn-success" @click="saveAll()"><strong>Save</strong></button>
     <hr>
@@ -13,7 +13,7 @@
           <input v-model="option.nome" type="text" class="form-control" id="defaultName" aria-describedby="">
         </div>
         <div class="form-group">
-          <label for="defaultDescrizione"><strong>Default descrizione</strong></label>
+          <label for="defaultDescrizione"><strong>Default description</strong></label>
           <textarea v-model="option.descrizione" class="form-control" id="defaultDescrizione" rows="3"></textarea>
         </div>
       </div>
@@ -23,13 +23,13 @@
     <hr>
     <div class="row">
       <div class="col-md">
-        <strong>Chiave</strong>
+        <strong>Key</strong>
       </div>
       <div class="col-md">
-        <strong>Valore di default</strong>
+        <strong>Default value</strong>
       </div>
       <div class="col-md">
-        <strong>Azioni</strong>
+        <strong>Actions</strong>
       </div>
     </div>
     <div style="padding:5px 0px 5px 0px" class="row" v-for="opt, index in option.extra">
@@ -40,7 +40,7 @@
         {{opt.valore}}
       </div>
       <div class="col-md">
-        <button @click="removeExtra(index)">Elimina</button>
+        <button @click="removeExtra(index)">Delete</button>
       </div>
     </div>
     <div class="row">

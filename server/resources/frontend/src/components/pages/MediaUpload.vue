@@ -6,7 +6,7 @@
     <hr>
     <div class="form">
       <div class="form-group">
-        <label for="project"><strong>Progetto</strong></label>
+        <label for="project"><strong>Project</strong></label>
         <select v-model="form.project" class="form-control" name="">
           <option v-for="progetto in progetti" :value="progetto.id">{{progetto.id}} : {{progetto.nome}}</option>
         </select>

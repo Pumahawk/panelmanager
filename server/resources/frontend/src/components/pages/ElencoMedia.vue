@@ -1,18 +1,18 @@
 <template lang="html">
   <div class="">
-    <h1>Elenco media</h1>
+    <h1>List of media</h1>
     <hr>
     <div v-for="progetto in progetti">
       <h4>{{progetto.info.id}}:{{progetto.info.nome}}</h4>
       <table v-if="progetto.media.length > 0" class="table table-striped table-sm">
         <thead>
           <tr>
-            <td>Id</td><td>Nome media</td><td>Azioni</td>
+            <td>Id</td><td>Name media</td><td>Actions</td>
           </tr>
         </thead>
         <tbody>
           <tr v-for="media, index in progetto.media">
-            <td>{{media.id}}</td><td>{{media.nome}}</td><td><button @click="cancella(progetto, index)">Cancella</button></td>
+            <td>{{media.id}}</td><td>{{media.nome}}</td><td><button @click="cancella(progetto, index)">Delete</button></td>
           </tr>
         </tbody>
       </table>

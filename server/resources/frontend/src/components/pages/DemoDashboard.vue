@@ -5,25 +5,25 @@
     <div class="p-3">
       <h2>Info</h2>
       <p>
-        Questo strumento e' stato sviluppato per facilitare la manipolazione di
-        contenuti dinamici sulla vostra piattaforma.
+        This tool has been developed to facilitate manipulation of
+        dynamic content on your platform.
       </p>
     </div>
     <div class="p-3">
-      <h2>Funzionalità</h2>
+      <h2>Functionality</h2>
       <p>
-        PanelManager mette a disposizione diverse funzionalita accessibili attraverso
-        il menu laterale.<br>
-        Le principali funzionalita sono:
+        PanelManager provides various features accessible through
+        the side menu.<br>
+        The main features are:
         <ul>
-          <li>Gestione dei progetti</li>
-          Per aggiungere, visualizzare, modificare e cancellare i progetti.
-          <li>Gestione dei media</li>
-          Per aggiungere immagine ai progetti.
-          <li>Gestione delle fatture</li>
-          Un piccolo tool che permette di creare semplici fatture.
-          <li>Gestione profilo</li>
-          Per modificare le informazioni di login di PanelManager.
+          <li>Project management</li>
+          To add, view, edit and delete projects.
+          <li>Media management</li>
+          To add image to projects.
+          <li>Invoice management</li>
+          A small tool that allows you to create simple invoices.
+          <li>Profile management</li>
+          To change the login information of PanelManager.
         </ul>
       </p>
     </div>

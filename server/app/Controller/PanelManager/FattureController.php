@@ -31,7 +31,7 @@ class FattureController {
 					$resp['status'] = 'OK';
 			} else {
 					$resp['status'] = 'ERROR';
-					$resp['message'] = ($overwrite == false) ? 'Fattura gia esistente.' : 'Errore generazione fattura';
+					$resp['message'] = ($overwrite == false) ? 'Invoice already exist.' : 'Error to genereta invoice.';
 			}
 		} else {
 			$resp['status'] = 'ERROR';

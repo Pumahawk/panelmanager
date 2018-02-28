@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <h1>Modifica progetto</h1>
+    <h1>Edit project</h1>
     <hr>
     <button @click="edit()" class="btn btn-success">Save</button>
     <hr>
@@ -8,7 +8,7 @@
       <div class="col">
         <div class="form">
           <div class="form-group">
-            <label><strong>Nome</strong></label>
+            <label><strong>Name</strong></label>
             <input v-model="progetto.nome" class="form-control" type="text" name="">
           </div>
           <div v-for="extra in progetto.extra" class="form-group">
@@ -20,7 +20,7 @@
       <div class="col">
         <div class="form">
           <div class="form-group">
-            <label><strong>Descrizione</strong></label>
+            <label><strong>Description</strong></label>
             <textarea v-model="progetto.descrizione" class="form-control" value="nome" name="name" rows="8" cols="80"></textarea>
           </div>
         </div>
