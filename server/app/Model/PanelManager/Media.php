@@ -106,10 +106,13 @@ class Media {
     }
     if($keyExtra){
     	foreach ($progettiResp as $k => $progetto) {
-		  unset($progettiResp[$k]['info']);
-		  foreach ($progetto['info'] -> extra as $extra) {
-		   $progettiResp[$k]['info']['extra'][$extra -> chiave] = $extra -> valore;
-		  }
+		    unset($progettiResp[$k]['info']);
+        $progettiResp[$k]['info']['id'] = $progetto['info'] -> id;
+        $progettiResp[$k]['info']['nome'] = $progetto['info'] -> nome;
+        $progettiResp[$k]['info']['descrizione'] = $progetto['info'] -> descrizione;
+  		  foreach ($progetto['info'] -> extra as $extra) {
+  		   $progettiResp[$k]['info']['extra'][$extra -> chiave] = $extra -> valore;
+  		  }
     	}
     }
 
