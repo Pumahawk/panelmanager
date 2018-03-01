@@ -87,7 +87,7 @@ class Media {
     }
   }
 
-  public static function getAllProject() {
+  public static function getAllProject($keyExtra = false) {
     $progetti = Progetto::getAll();
     $media =  Media::getAll();
     $progettiResp = array();
@@ -103,6 +103,14 @@ class Media {
         'info' => $progetto,
         'media' => $mediaProgetto
       ];
+    }
+    if($keyExtra){
+    	foreach ($progettiResp as $k => $progetto) {
+		  unset($progettiResp[$k]['info']);
+		  foreach ($progetto['info'] -> extra as $extra) {
+		   $progettiResp[$k]['info']['extra'][$extra -> chiave] = $extra -> valore;
+		  }
+    	}
     }
 
     return $progettiResp;
